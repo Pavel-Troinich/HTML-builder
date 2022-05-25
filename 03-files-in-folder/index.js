@@ -9,9 +9,10 @@ fs.readdir(dirPath, {withFileTypes: true}, ((err, fileList) => {
   fileList.forEach(item => {
     if (item.isFile()) {
       let fullName = item.name;
-      let fName = fullName.split('.')[0];
-      let fExt = fullName.split('.')[1];
-      let fPath = `${dirPath}\\${fullName}`;
+      let arrName = fullName.split('.');
+      let fExt = arrName.pop();
+      let fName = arrName.join('.');  
+      let fPath = path.join(dirPath, fullName);
       let fSize = Number();
       fs.stat(fPath, (err, stats) => {
         if (err) throw err;

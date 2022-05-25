@@ -3,7 +3,7 @@ const path = require('path');
 const dirDest = path.join(__dirname, 'files-copy');
 const dirFiles = path.join(__dirname, 'files');
 
-fs.rmdir(dirDest, { recursive: true, force: true }, ((err) => {
+fs.rm(dirDest, { recursive: true, force: true }, ((err) => {
   if (err) throw err;
   fs.mkdir(dirDest, { recursive: true }, ((err) => {
     if (err) throw err;

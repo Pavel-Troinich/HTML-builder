@@ -4,11 +4,11 @@ const path = require('path');
 const dirProject = path.join(__dirname, 'project-dist');
 const dirStyles = path.join(__dirname, 'styles');
 
-fs.rmdir(dirProject, { recursive: true, force: true }, ((err) => {
+fs.rm(dirProject, { recursive: true, force: true }, ((err) => {
   if (err) throw err;
   fs.mkdir(dirProject, { recursive: true }, ((err) => {
     if (err) throw err;
-    fs.rmdir(path.join(dirProject, 'assets'), { recursive: true, force: true }, ((err) => {
+    fs.rm(path.join(dirProject, 'assets'), { recursive: true, force: true }, ((err) => {
       if (err) throw err;
       fs.mkdir(path.join(dirProject, 'assets'), { recursive: true }, ((err) => {
         if (err) throw err;
